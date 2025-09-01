@@ -19,7 +19,7 @@ This project demonstrates a complete full-stack workflow with Django as the back
 - **Other Tools:** Django ORM, Bootstrap (if used)
 
 ## How to Run
-bash```
+```bash
 python -m venv venv
 source venv/bin/activate    # On Linux/Mac
 venv\Scripts\activate       # On Windows
