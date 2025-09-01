@@ -25,5 +25,18 @@ source venv/bin/activate    # On Linux/Mac
 venv\Scripts\activate       # On Windows
 
 - Install Dependencies
+```bash
 pip install -r requirements.txt
+
+- Run migrations
+```bash
+python manage.py migrate
+
+- Create a superuser (optional)
+```bash
+python manage.py createsuperuser
+
+- Run the development server
+```bash
+python manage.py runserver
 
