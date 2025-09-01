@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    flex-direction: column;
+}
+#chat-log{
+    background: black;
+    color: white;
+    line-height: 20px;
+    font-size: 16px;
+    height: 80vh;
+    width: 40vw;
+}
+.inner{
+    display: flex;
+    flex-direction: row;
+}
+#chat-input{
+    height: 25px;
+    width: 35vw;
+}
+#chat-submit{
+    height: 29px;
+    width: 5vw;
+}

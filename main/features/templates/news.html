@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="{% static './news.css' %}" rel="stylesheet" />
+  <title>News App</title>
+</head>
+
+<body>
+  <header class="header">
+    <nav>
+        <ul>
+            <li><a href={% url 'index' %}>Home</a></li>
+            <li><a href={% url 'news' %}>News</a></li>
+            <li><a href={% url 'weather' %}>Weather</a></li>
+            <li><a href={% url 'music' %}>Music</a></li>
+            <li><a href={% url 'videoplayer' %}>Video</a></li>
+            <li><a href={% url 'chatroom' %}>Socialize</a></li>
+            <li><a href={% url 'guess_game' %}>Game</a></li>
+            <li><a href="/admin">Admin</a></li>
+        </ul>
+    </nav>
+</header>
+
+{% for hl, des, img in mylist %}
+<div class="container">
+<div class="submain">
+    <img src="{{ img }}" alt="image">
+</div>
+<div class="submain">
+  <div class="card">
+      <h2>Headline</h2>
+      <h3>{{ hl }}{{ value|linebreaks }}</h3>
+  </div>
+<div class="card">
+    <h2> Description</h2>
+    <h4>{{ des }}{{ value|linebreaks }}</h4>
+  </div>
+  </div>
+</div>
+  {% endfor %}
+
+  </body>

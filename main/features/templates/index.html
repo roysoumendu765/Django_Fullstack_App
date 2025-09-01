@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Page</title>
+    <link href="{% static './index.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href={% url 'index' %}>Home</a></li>
+                <li><a href={% url 'news' %}>News</a></li>
+                <li><a href={% url 'weather' %}>Weather</a></li>
+                <li><a href={% url 'music' %}>Music</a></li>
+                <li><a href={% url 'videoplayer' %}>Video</a></li>
+                <li><a href={% url 'chatroom' %}>Socialize</a></li>
+                <li><a href={% url 'guess_game' %}>Game</a></li>
+                <li><a href="/admin">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--  -->
+    <div class="container">
+        <div class="sub-class1">
+            <p>ALL IN ONE</p>
+        </div>
+        <div class="sub-class2">
+            <p>Socialize with your Friends</p>
+            <p>Updates on the move</p>
+            <p> Entertainment</p>
+        </div>
+    </div>
+    
+    <!-- <div class="main">
+            <div class="card">
+
+            </div>
+            <div class="card">
+                
+            </div>
+            <div class="card"></div>
+    </div> -->
+
+    <div class="main2">
+       <div class="top">
+           <h1>Technologies used</h1>
+       </div>
+       <div class="bottom">
+           <div class="vcard">
+            <h1>FRONTEND</h1>
+            <h2>HTML</h2>
+            <h2>CSS</h2>
+            <h2>JAVASCRIPT</h2>
+           </div>
+           <div class="vcard">
+               <h1>BACKEND</h1>
+               <h2>DJANGO</h2>
+               <h2>PYTHON</h2>
+           </div>
+           <div class="vcard">
+               <h1>DATABASE</h1>
+               <h2>SQLITE</h2>
+           </div>
+       </div>
+    </div>
+
+    <footer class="foot">
+        <div class="col1">
+            <p>Our Team</p>
+            <p>Gayathri Kamminana(1988421)</p>
+            <p>Soumendu Roy(1987645)</p>
+            <p>Keval Gada(2064004)</p>
+            <p>Keshav Prasad.B(1993754)</p>
+            <p>Kavya.G(1987592)</p>
+            <p>Narava Hymavathi(1987967)</p>
+        </div>
+        <div class="col2">
+                <li><a href={% url 'index' %}>Home</a></li>
+                <li><a href={% url 'news' %}>News</a></li>
+                <li><a href={% url 'weather' %}>Weather</a></li>
+                <li><a href={% url 'music' %}>Music</a></li>
+                <li><a href={% url 'videoplayer' %}>Video</a></li>
+                <li><a href={% url 'chatroom' %}>Socialize</a></li>
+                <li><a href={% url 'guess_game' %}>Game</a></li>
+                <li><a href="/admin">Admin</a></li>
+        </div>
+        <div class="col3">
+            <p>ALL</p>
+            <p>IN</p>
+            <p>ONE</p>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>&copy;Copyright@2022</p>
+    </div>
+</body>
+</html>

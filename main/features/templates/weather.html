@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="{% static './weather.css' %}" rel="stylesheet" />
+  <title>Weather App </title>
+</head>
+
+<body>
+  <header class="header">
+    <nav>
+        <ul>
+            <li><a href={% url 'index' %}>Home</a></li>
+            <li><a href={% url 'news' %}>News</a></li>
+            <li><a href={% url 'weather' %}>Weather</a></li>
+            <li><a href={% url 'music' %}>Music</a></li>
+            <li><a href={% url 'videoplayer' %}>Video</a></li>
+            <li><a href={% url 'chatroom' %}>Socialize</a></li>
+            <li><a href={% url 'guess_game' %}>Game</a></li>
+            <li><a href="/admin">Admin</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+    <form method="post" class="col-md"">
+      {% csrf_token %}
+      <div class=" input-group">
+      <input type="text" class="form-control" name="city" placeholder="Choose Your City ...">
+      <div class="input-group-btn">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+      </div>
+      <form>
+  <br> <br>
+  
+  {% if a and b and c and d and e %}
+  <div class="container">
+    <div class="sub-class">
+      <div class="vcard">
+        <h2>Country Code</h2>
+        <h2>{{a}}</h2>
+      </div>
+      <div class="vcard">
+        <h2>Temperature in Celsius</h2>
+        <h2>{{c}}</h2>
+      </div>
+      <div class="vcard">
+        <h2>Pressure</h2>
+        <h2>{{d}}</h2>
+      </div>
+      <div class="vcard">
+        <h2>Coordinates [X,Y]</h2>
+        <h2>{{b}}</h2>
+      </div>
+    </div>
+    <div class="sub-class">
+      <div class="vcard">
+        <h2>Humidity</h2>
+        <h2>{{e}}</h2>
+      </div>
+      <div class="vcard">
+        <h2>Description</h2>
+        <h2>{{g}}</h2>
+      </div>
+      <div class="vcard">
+        <h2>Forecast</h2>
+        <h2>{{f}}</h2>
+        <h3><img
+          src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="width:70px"></h3>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Video Player
+    </title>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelementplayer.min.css"
+        rel="stylesheet" />
+    <link href="{% static './style.css' %}" rel="stylesheet" />
+    <link href="{% static './nav.css' %}" rel="stylesheet" />
+    <link href="{% static './music.css' %}" rel="stylesheet" />
+</head>
+
+    <body>
+        <header class="header">
+            <nav>
+                <ul>
+                    <li><a href={% url 'index' %}>Home</a></li>
+                    <li><a href={% url 'news' %}>News</a></li>
+                    <li><a href={% url 'weather' %}>Weather</a></li>
+                    <li><a href={% url 'music' %}>Music</a></li>
+                    <li><a href={% url 'videoplayer' %}>Video</a></li>
+                    <li><a href={% url 'chatroom' %}>Socialize</a></li>
+                    <li><a href={% url 'guess_game' %}>Game</a></li>
+                    <li><a href="/admin">Admin</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contain">
+            <div class="container">
+                <div class="music-player" style="width: 800px;">
+                    {% for item in page_obj %}
+                    <div class="cover">
+                        <video class="fcmedia" style="width: 800px; height: 350px;" controls>
+                            <source
+                                src="{% if item.video_file %}{{item.video_file.url}} {% else %} {{item.video_link}} {% endif %}"
+                                type="video/mp4" />
+                        </video>
+                    </div>
+                    <div class="titre">
+                        <h3>
+                            {{item.artist}}
+                        </h3>
+                        <h1>
+                            {{item.title}}
+                        </h1>
+                    </div>
+                    <center><a
+                            href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}{% endif %}"><i
+                                class="fa fa-step-backward fa-2x"></i></a> &nbsp; &nbsp; &nbsp; <a
+                            href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }} {% endif %}"><i
+                                class="fa fa-step-forward fa-2x"></i></a></center>
+                                <div class="lecteur">
+                                     <div class="mejs__controls mejs__playpause-button"></div>
+                                </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js">
+    </script>
+    <script src="{% static './videoplayer.js' %}">
+    </script>
+</body>
+
+</html>

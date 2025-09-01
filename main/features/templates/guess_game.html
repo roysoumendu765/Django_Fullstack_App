@@ -1,0 +1,58 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guess_Game</title>
+        <link href="{% static './guess.css' %}" rel="stylesheet" />
+    </head>
+<body>
+
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href={% url 'index' %}>Home</a></li>
+                <li><a href={% url 'news' %}>News</a></li>
+                <li><a href={% url 'weather' %}>Weather</a></li>
+                <li><a href={% url 'music' %}>Music</a></li>
+                <li><a href={% url 'videoplayer' %}>Video</a></li>
+                <li><a href={% url 'chatroom' %}>Socialize</a></li>
+                <li><a href={% url 'guess_game' %}>Game</a></li>
+                <li><a href="/admin">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+        
+<div class="top">
+<h1>Guess a Number Game</h1>
+</div>
+
+{% if success %}
+    <div class="winner">
+     <h2>You win! Tries needed: {{turn}}</h2>
+        <br><br>
+    <form action="/guess_game/" method="post">
+        <input type="submit" value="Start new game" class="restart">
+    </form>
+    </div>
+{% elif turn > 0 %}
+    <div class="message">
+        <h3>Try again!</h3> 
+        <h3>You guessed {{ user_number }}</h3>
+        <h3>The secret number is {{ hint }}</h3>
+    </div>
+{% else %}
+    <div class="heading">
+        Welcome to the Game!
+    </div>
+{% endif %}
+
+{% if not success%}
+    <form action="/guess_game/" method="post" id="stream">
+        <label for="guess_game">Guess a number(1-100): </label>
+        <input id="guess_number" type="number" name="guess_number" value="" max="100" required>
+        <input type="submit" value="OK">
+    </form>
+{% endif %}
+</body>
+</html>
