@@ -23,6 +23,7 @@ This project demonstrates a complete full-stack workflow with Django as the back
 python -m venv venv
 source venv/bin/activate    # On Linux/Mac
 venv\Scripts\activate       # On Windows
+```
 
 - Install Dependencies
 ```bash
